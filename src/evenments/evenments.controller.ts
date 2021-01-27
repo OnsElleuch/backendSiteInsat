@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { EvenmentsService } from './evenments.service';
 
-@Controller('nouveautes')
+@Controller('evenments')
 export class EvenmentsController {constructor(private evenmentsService : EvenmentsService){
 
 }
