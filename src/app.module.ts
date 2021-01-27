@@ -3,6 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import * as dotenv from 'dotenv';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { EvenmentsController } from './evenments/evenments.controller';
+import { NouveautesController } from './nouveautes/nouveautes.controller';
+import { EvenmentsService } from './evenments/evenments.service';
+import { NouveautesService } from './nouveautes/nouveautes.service';
+import { ClubsController } from './clubs/clubs.controller';
+import { ClubsService } from './clubs/clubs.service';
 
 dotenv.config();
 @Module({
@@ -18,7 +24,7 @@ dotenv.config();
       synchronize: true,
     })
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, EvenmentsController, NouveautesController, ClubsController],
+  providers: [AppService, EvenmentsService, NouveautesService, ClubsService],
 })
 export class AppModule {}
