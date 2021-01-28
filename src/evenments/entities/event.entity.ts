@@ -1,30 +1,25 @@
-import { Column, Entity,PrimaryGeneratedColumn } from "typeorm";
-
-
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('event')
-export class EventEntity{
-    @PrimaryGeneratedColumn()
-    id : number;
+export class EventEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    title : string;
+  @Column()
+  title: string;
 
-    @Column()
-    description : string;
+  @Column()
+  description: string;
 
-    @Column()
-    date : string;
+  @Column()
+  date: string;
 
-    @Column()
-    club: string;
+  @Column()
+  club: string;
 
-    @Column()
-    descriptionClub : string;
+  @Column()
+  descriptionClub: string;
 
-    @Column()
-    photo_url: string;
-
-    
-
+  @Column()
+  photo_url: string;
 }

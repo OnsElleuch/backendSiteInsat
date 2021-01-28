@@ -1,19 +1,16 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('news')
-export class NewsEntity {
+@Entity('rendez-vous')
+export class RendezVousEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  title: string;
+  name: string;
 
   @Column()
-  description: string;
+  date: Date;
 
   @Column()
-  date: string;
-
-  @Column()
-  photo_url: string;
+  photoUrl: string;
 }
