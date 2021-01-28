@@ -4,17 +4,15 @@ import { DirectionEntity } from './entities/direction.entity';
 
 @Controller('direction')
 export class DirectionController {
-    constructor( private directionService : DirectionService){
+  constructor(private directionService: DirectionService) {}
 
-    }
+  @Get('getDirectionMembers')
+  getDirectionMembers(): Promise<DirectionEntity[]> {
+    return this.directionService.getDirectionMembers();
+  }
 
-    @Get('getDirectionMembers')
-    getDirectionMembers() : Promise <DirectionEntity[]>{
-        return this.directionService.getDirectionMembers();
-    }
-
-    @Get('getAdministrationMembers')
-    getAdministrationMembers() : Promise <DirectionEntity[]> {
-        return this.directionService.getAdministrationMembers();
-    }
+  @Get('getAdministrationMembers')
+  getAdministrationMembers(): Promise<DirectionEntity[]> {
+    return this.directionService.getAdministrationMembers();
+  }
 }

@@ -6,16 +6,18 @@ import { ServiceEnumEnum } from './service-enum.enum';
 
 @Injectable()
 export class DirectionService {
-    constructor(
-        @InjectRepository(DirectionEntity)
-        private readonly DirectionRepository : Repository<DirectionEntity>
-    ){
-
-    }
-    async getDirectionMembers(): Promise<DirectionEntity[]> {
-        return await this.DirectionRepository.find({service: ServiceEnumEnum.Direction});
-    }
-    async getAdministrationMembers(): Promise<DirectionEntity[]> {
-        return await this.DirectionRepository.find({service: ServiceEnumEnum.Administration});
-    }
+  constructor(
+    @InjectRepository(DirectionEntity)
+    private readonly DirectionRepository: Repository<DirectionEntity>,
+  ) {}
+  async getDirectionMembers(): Promise<DirectionEntity[]> {
+    return await this.DirectionRepository.find({
+      service: ServiceEnumEnum.Direction,
+    });
+  }
+  async getAdministrationMembers(): Promise<DirectionEntity[]> {
+    return await this.DirectionRepository.find({
+      service: ServiceEnumEnum.Administration,
+    });
+  }
 }

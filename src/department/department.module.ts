@@ -8,6 +8,6 @@ import { LabEntity } from './entities/lab.entity';
 @Module({
   controllers: [DepartmentController],
   providers: [DepartmentService],
-  imports: [TypeOrmModule.forFeature([LabEntity, EnseignantEntity])]
+  imports: [TypeOrmModule.forFeature([LabEntity, EnseignantEntity])],
 })
 export class DepartmentModule {}

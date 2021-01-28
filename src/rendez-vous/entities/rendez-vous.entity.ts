@@ -1,18 +1,16 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('rendez-vous')
 export class RendezVousEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    date: Date;
+  @Column()
+  date: Date;
 
-    @Column()
-    photoUrl: string;
-
-
+  @Column()
+  photoUrl: string;
 }

@@ -7,8 +7,6 @@ import { RendezVousService } from './rendez-vous.service';
 @Module({
   controllers: [RendezVousController],
   providers: [RendezVousService],
-  imports: [
-    TypeOrmModule.forFeature([RendezVousEntity])
-  ]
+  imports: [TypeOrmModule.forFeature([RendezVousEntity])],
 })
 export class RendezVousModule {}
