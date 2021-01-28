@@ -1,7 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { DirectionService } from './direction.service';
 import { DirectionEntity } from './entities/direction.entity';
-
+@ApiTags('direction')
 @Controller('direction')
 export class DirectionController {
   constructor(private directionService: DirectionService) {}
