@@ -1,6 +1,18 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { ClubsService } from './clubs.service';
+import { ApiTags } from '@nestjs/swagger';
+import { CreateClubDto } from './dto/create-club.dto';
+import { UpdateClubDto } from './dto/update-club.dto';
 
+@ApiTags('clubs')
 @Controller('clubs')
 export class ClubsController {
   constructor(private clubsService: ClubsService) {}
@@ -12,5 +24,19 @@ export class ClubsController {
   @Get('getClubById/:id')
   getNewsById(@Param('id') id: number) {
     return this.clubsService.getClubById(id);
+  }
+  @Post('createClub/')
+  createEvent(@Body() createClubDto: CreateClubDto) {
+    return this.clubsService.createClub(createClubDto);
+  }
+
+  @Put('updateClub/:id')
+  updateEvent(@Param('id') id: string, @Body() updateClubDto: UpdateClubDto) {
+    return this.clubsService.updateClub(+id, updateClubDto);
+  }
+
+  @Delete('removeClub/:id')
+  removeEvent(@Param('id') id: string) {
+    return this.clubsService.removeClub(+id);
   }
 }
