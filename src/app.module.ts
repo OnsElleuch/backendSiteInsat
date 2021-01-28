@@ -9,10 +9,13 @@ import { EvenmentsService } from './evenments/evenments.service';
 import { NouveautesService } from './nouveautes/nouveautes.service';
 import { ClubsController } from './clubs/clubs.controller';
 import { ClubsService } from './clubs/clubs.service';
+import { EventEntity } from './evenments/entities/event.entity';
+import { NewsEntity } from './nouveautes/entities/news.entity';
+import { ClubEntity } from './clubs/entities/club.entity';
 
 dotenv.config();
 @Module({
-  imports: [
+    imports: [TypeOrmModule.forFeature([EventEntity, NewsEntity,ClubEntity]),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
