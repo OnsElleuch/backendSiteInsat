@@ -8,6 +8,7 @@ import { RendezVousModule } from './rendez-vous/rendez-vous.module';
 import { DepartmentModule } from './department/department.module';
 import { DirectionService } from './direction/direction.service';
 import { CalendrierModule } from './calendrier/calendrier.module';
+import { NotesModule } from './notes/notes.module';
 
 dotenv.config();
 @Module({
@@ -26,6 +27,7 @@ dotenv.config();
     RendezVousModule,
     DepartmentModule,
     CalendrierModule,
+    NotesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
