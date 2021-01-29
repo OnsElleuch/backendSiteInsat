@@ -5,7 +5,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   app.enableCors({
-    origins: ['*']
+    origin: ['*']
   });
   const options = new DocumentBuilder()
     .setTitle('Backend Insat')
