@@ -9,6 +9,8 @@ import { DepartmentModule } from './department/department.module';
 import { DirectionService } from './direction/direction.service';
 import { CalendrierModule } from './calendrier/calendrier.module';
 import { NotesModule } from './notes/notes.module';
+import { PartenariatModule } from './partenariat/partenariat.module';
+import { ConventionModule } from './convention/convention.module';
 
 dotenv.config();
 @Module({
@@ -28,6 +30,8 @@ dotenv.config();
     DepartmentModule,
     CalendrierModule,
     NotesModule,
+    PartenariatModule,
+    ConventionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
