@@ -11,6 +11,7 @@ import { CalendrierModule } from './calendrier/calendrier.module';
 import { NotesModule } from './notes/notes.module';
 import { PartenariatModule } from './partenariat/partenariat.module';
 import { ConventionModule } from './convention/convention.module';
+import { ContactAdminModule } from './contact-admin/contact-admin.module';
 
 dotenv.config();
 @Module({
@@ -32,6 +33,7 @@ dotenv.config();
     NotesModule,
     PartenariatModule,
     ConventionModule,
+    ContactAdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
