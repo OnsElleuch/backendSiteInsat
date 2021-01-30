@@ -3,16 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import * as dotenv from 'dotenv';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-import { EvenmentsController } from './evenments/evenments.controller';
-import { NouveautesController } from './nouveautes/nouveautes.controller';
-import { EvenmentsService } from './evenments/evenments.service';
-import { NouveautesService } from './nouveautes/nouveautes.service';
-import { ClubsController } from './clubs/clubs.controller';
-import { ClubsService } from './clubs/clubs.service';
-import { EventEntity } from './evenments/entities/event.entity';
-import { NewsEntity } from './nouveautes/entities/news.entity';
-import { ClubEntity } from './clubs/entities/club.entity';
 import { DirectionModule } from './direction/direction.module';
 import { RendezVousModule } from './rendez-vous/rendez-vous.module';
 import { DepartmentModule } from './department/department.module';
@@ -28,7 +18,6 @@ import { AuthModule } from './auth/auth.module';
 dotenv.config();
 @Module({
   imports: [
-    TypeOrmModule.forFeature([EventEntity, NewsEntity, ClubEntity]),
     DirectionModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
@@ -50,12 +39,7 @@ dotenv.config();
     EtudiantModule,
     AuthModule,
   ],
-  controllers: [
-    AppController,
-    EvenmentsController,
-    NouveautesController,
-    ClubsController,
-  ],
-  providers: [AppService, EvenmentsService, NouveautesService, ClubsService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
