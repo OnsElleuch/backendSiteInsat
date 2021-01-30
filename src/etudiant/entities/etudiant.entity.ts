@@ -5,26 +5,15 @@ const bcrypt = require('bcrypt');
 @Entity('etudiant')
 export class EtudiantEntity {
   @PrimaryGeneratedColumn('uuid') id: string;
-  @Column({
-    nullable: false,
-    unique: true,
-  })
+  @Column()
   name: string;
-  @Column({
-    nullable: false,
-  })
+  @Column()
   password: string;
-  @Column({
-    nullable: false,
-  })
+  @Column()
   CIN: string;
-  @Column({
-    nullable: false,
-  })
+  @Column()
   numEtudiant: string;
-  @Column({
-    nullable: false,
-  })
+  @Column()
   email: string;
   @BeforeInsert() async hashPassword() {
     this.password = await bcrypt.hash(this.password, 10);
