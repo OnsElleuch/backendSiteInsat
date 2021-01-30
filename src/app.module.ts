@@ -14,6 +14,7 @@ import { ConventionModule } from './convention/convention.module';
 import { ContactAdminModule } from './contact-admin/contact-admin.module';
 import { EtudiantModule } from './etudiant/etudiant.module';
 import { AuthModule } from './auth/auth.module';
+import { LaboratoireRechercheModule } from './laboratoire-recherche/laboratoire-recherche.module';
 
 dotenv.config();
 @Module({
@@ -38,6 +39,7 @@ dotenv.config();
     ContactAdminModule,
     EtudiantModule,
     AuthModule,
+    LaboratoireRechercheModule,
   ],
   controllers: [AppController],
   providers: [AppService],
