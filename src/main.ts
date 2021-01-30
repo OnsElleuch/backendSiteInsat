@@ -1,10 +1,17 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+const fs = require('fs');
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.enableCors ();
+  const httpsOptions = {
+    key: fs.readFileSync('./secret/localhost.key'),
+    cert: fs.readFileSync('./secret/localhost.crt'),
+  };
+  const app = await NestFactory.create(AppModule, {
+    httpsOptions,
+  });
+  app.enableCors();
   const options = new DocumentBuilder()
     .setTitle('Backend Insat')
     .setDescription('site Insat Frontedn and Backoffice REST API Backend')
