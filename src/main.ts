@@ -11,6 +11,7 @@ async function bootstrap() {
     .setTitle('Backend Insat')
     .setDescription('site Insat Frontedn and Backoffice REST API Backend')
     .setVersion('1.0')
+    .addTag('insat')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);
