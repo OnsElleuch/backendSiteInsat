@@ -18,6 +18,12 @@ import { RendezVousModule } from './rendez-vous/rendez-vous.module';
 import { DepartmentModule } from './department/department.module';
 import { DirectionService } from './direction/direction.service';
 import { CalendrierModule } from './calendrier/calendrier.module';
+import { NotesModule } from './notes/notes.module';
+import { PartenariatModule } from './partenariat/partenariat.module';
+import { ConventionModule } from './convention/convention.module';
+import { ContactAdminModule } from './contact-admin/contact-admin.module';
+import { EtudiantModule } from './etudiant/etudiant.module';
+import { AuthModule } from './auth/auth.module';
 
 dotenv.config();
 @Module({
@@ -37,6 +43,12 @@ dotenv.config();
     RendezVousModule,
     DepartmentModule,
     CalendrierModule,
+    NotesModule,
+    PartenariatModule,
+    ConventionModule,
+    ContactAdminModule,
+    EtudiantModule,
+    AuthModule,
   ],
   controllers: [
     AppController,
