@@ -17,6 +17,9 @@ export class EvenmentsService {
   async getEventById(id: number) {
     return await this.EventsRepository.find({ id: id });
   }
+  async getEventsByClub(club: string): Promise<EventEntity[]> {
+    return await this.EventsRepository.find({ club: club });
+  }
   async updateEvent(id: number, updateEventDto: UpdateEventDto) {
     return await this.EventsRepository.update({ id: id }, updateEventDto);
   }

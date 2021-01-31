@@ -18,13 +18,18 @@ export class EvenmentsController {
   constructor(private evenmentsService: EvenmentsService) {}
 
   @Get('getEvents')
-  getNews() {
+  getEvents() {
     return this.evenmentsService.getEvents();
   }
 
   @Get('getEventsById/:id')
   getEventsById(@Param('id') id: number) {
     return this.evenmentsService.getEventById(id);
+  }
+
+  @Get('getEventsByClub/:club')
+  getEventsByClub(@Param('club') club: string) {
+    return this.evenmentsService.getEventsByClub(club);
   }
 
   @Post('createEvent/')
