@@ -18,13 +18,18 @@ export class EvenmentsController {
   constructor(private evenmentsService: EvenmentsService) {}
 
   @Get('getEvents')
-  getNews() {
+  getEvents() {
     return this.evenmentsService.getEvents();
   }
 
   @Get('getEventsById/:id')
   getEventsById(@Param('id') id: number) {
-    return this.evenmentsService.getEventById(id);
+    return this.evenmentsService.getEventsById(id);
+  }
+
+  @Get('getEventsByClub/:club')
+  getEventsByClub(@Param('club') club: string) {
+    return this.evenmentsService.getEventsByClub(club);
   }
 
   @Post('createEvent/')
@@ -33,12 +38,12 @@ export class EvenmentsController {
   }
 
   @Put('updateEvent/:id')
-  updateEvent(@Param('id') id: string, @Body() updateEventDto: UpdateEventDto) {
-    return this.evenmentsService.updateEvent(+id, updateEventDto);
+  updateEvent(@Param('id') id: number, @Body() updateEventDto: UpdateEventDto) {
+    return this.evenmentsService.updateEvent(id, updateEventDto);
   }
 
   @Delete('removeEvent/:id')
-  removeEvent(@Param('id') id: string) {
-    return this.evenmentsService.removeEvent(+id);
+  removeEvent(@Param('id') id: number) {
+    return this.evenmentsService.removeEvent(id);
   }
 }
