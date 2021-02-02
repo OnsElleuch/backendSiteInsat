@@ -3,6 +3,8 @@ export class CreateEtudiantDto {
   @ApiProperty()
   name: string;
   @ApiProperty()
+  class: string;
+  @ApiProperty()
   password: string;
   @ApiProperty()
   CIN: string;

@@ -10,6 +10,8 @@ export class EtudiantEntity {
   @Column()
   password: string;
   @Column()
+  class: string;
+  @Column()
   CIN: string;
   @Column()
   numEtudiant: string;
