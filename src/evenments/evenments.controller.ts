@@ -24,7 +24,7 @@ export class EvenmentsController {
 
   @Get('getEventsById/:id')
   getEventsById(@Param('id') id: number) {
-    return this.evenmentsService.getEventById(id);
+    return this.evenmentsService.getEventsById(id);
   }
 
   @Get('getEventsByClub/:club')
@@ -38,12 +38,12 @@ export class EvenmentsController {
   }
 
   @Put('updateEvent/:id')
-  updateEvent(@Param('id') id: string, @Body() updateEventDto: UpdateEventDto) {
-    return this.evenmentsService.updateEvent(+id, updateEventDto);
+  updateEvent(@Param('id') id: number, @Body() updateEventDto: UpdateEventDto) {
+    return this.evenmentsService.updateEvent(id, updateEventDto);
   }
 
   @Delete('removeEvent/:id')
-  removeEvent(@Param('id') id: string) {
-    return this.evenmentsService.removeEvent(+id);
+  removeEvent(@Param('id') id: number) {
+    return this.evenmentsService.removeEvent(id);
   }
 }

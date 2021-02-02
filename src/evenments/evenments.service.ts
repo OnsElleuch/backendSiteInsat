@@ -14,7 +14,7 @@ export class EvenmentsService {
   async getEvents(): Promise<EventEntity[]> {
     return await this.EventsRepository.find();
   }
-  async getEventById(id: number) {
+  async getEventsById(id: number) {
     return await this.EventsRepository.find({ id: id });
   }
   async getEventsByClub(club: string): Promise<EventEntity[]> {

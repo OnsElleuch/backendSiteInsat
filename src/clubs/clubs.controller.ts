@@ -31,12 +31,12 @@ export class ClubsController {
   }
 
   @Put('updateClub/:id')
-  updateClub(@Param('id') id: string, @Body() updateClubDto: UpdateClubDto) {
-    return this.clubsService.updateClub(+id, updateClubDto);
+  updateClub(@Param('id') id: number, @Body() updateClubDto: UpdateClubDto) {
+    return this.clubsService.updateClub(id, updateClubDto);
   }
 
   @Delete('removeClub/:id')
-  removeClub(@Param('id') id: string) {
-    return this.clubsService.removeClub(+id);
+  removeClub(@Param('id') id: number) {
+    return this.clubsService.removeClub(id);
   }
 }
