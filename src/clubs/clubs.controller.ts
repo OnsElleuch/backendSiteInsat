@@ -17,26 +17,26 @@ import { UpdateClubDto } from './dto/update-club.dto';
 export class ClubsController {
   constructor(private clubsService: ClubsService) {}
   @Get('getClubs')
-  getNews() {
+  getClubs() {
     return this.clubsService.getClubs();
   }
 
-  @Get('getClubById/:id')
-  getNewsById(@Param('id') id: number) {
+  @Get('club/:id')
+  getClubById(@Param('id') id: number) {
     return this.clubsService.getClubById(id);
   }
   @Post('createClub/')
-  createEvent(@Body() createClubDto: CreateClubDto) {
+  createClub(@Body() createClubDto: CreateClubDto) {
     return this.clubsService.createClub(createClubDto);
   }
 
   @Put('updateClub/:id')
-  updateEvent(@Param('id') id: string, @Body() updateClubDto: UpdateClubDto) {
-    return this.clubsService.updateClub(+id, updateClubDto);
+  updateClub(@Param('id') id: number, @Body() updateClubDto: UpdateClubDto) {
+    return this.clubsService.updateClub(id, updateClubDto);
   }
 
   @Delete('removeClub/:id')
-  removeEvent(@Param('id') id: string) {
-    return this.clubsService.removeClub(+id);
+  removeClub(@Param('id') id: number) {
+    return this.clubsService.removeClub(id);
   }
 }
