@@ -1,15 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
-export class CreateEtudiantDto {
+export class CreateEventDto {
   @ApiProperty()
-  name: string;
+  title: string;
   @ApiProperty()
-  class: string;
+  description: string;
   @ApiProperty()
-  password: string;
+  date: string;
   @ApiProperty()
-  CIN: string;
+  club: string;
   @ApiProperty()
-  numEtudiant: string;
+  descriptionClub: string;
   @ApiProperty()
-  email: string;
+  photo_url: string;
 }

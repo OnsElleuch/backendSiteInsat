@@ -5,6 +5,8 @@ import { DepartmentEnumEnum } from './deprtment-enum.enum';
 import { EnseignantEntity } from './entities/enseignant.entity';
 import { LabEntity } from './entities/lab.entity';
 import { GradeEnum } from './grade.enum';
+import { Enseignant } from './models/enseignant';
+import { Lab } from './models/lab';
 
 @Injectable()
 export class DepartmentService {
@@ -24,5 +26,12 @@ export class DepartmentService {
       department: DepartmentEnumEnum[departmentName],
       grade: GradeEnum[gradeName],
     });
+  }
+
+  async addLab(lab: Lab) {
+    return await this.LabRepository.save(lab);
+  }
+  async addEnseignant(enseignant: Enseignant) {
+    return await this.EnseignantRepository.save(enseignant);
   }
 }

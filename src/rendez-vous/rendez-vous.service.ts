@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { CreateRendezVousDto } from './dto/create-rendez-vous.dto';
 import { RendezVousEntity } from './entities/rendez-vous.entity';
 
 @Injectable()
@@ -18,5 +19,9 @@ export class RendezVousService {
     if (a.date > b.date) return -1;
     if (a.date < b.date) return 1;
     else return 0;
+  }
+
+  async createRendezVous(createRendezVousDto: CreateRendezVousDto) {
+    return await this.RendezVousRepository.save(createRendezVousDto);
   }
 }

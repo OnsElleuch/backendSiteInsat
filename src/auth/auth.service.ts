@@ -34,7 +34,7 @@ export class AuthService {
     const token = this._createToken(user);
 
     return {
-      username: user.CIN,
+      user,
       ...token,
     };
   }

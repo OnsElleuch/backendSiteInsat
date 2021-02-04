@@ -1,13 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-export class CreateCalendrierDto {
+export class CreateNewsDto {
   @ApiProperty()
-  name: string;
+  title: string;
   @ApiProperty()
-  type: string;
-  @ApiProperty()
-  details: string;
+  description: string;
   @ApiProperty()
   date: string;
   @ApiProperty()
-  pdfUrl: string;
+  photo_url: string;
 }

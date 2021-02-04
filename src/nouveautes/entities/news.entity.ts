@@ -1,23 +1,19 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('Calendrier')
-export class Calendrier {
+@Entity('news')
+export class NewsEntity {
   @ApiProperty()
   @PrimaryGeneratedColumn()
   id: number;
 
   @ApiProperty()
   @Column()
-  name: string;
+  title: string;
 
   @ApiProperty()
   @Column()
-  type: string;
-
-  @ApiProperty()
-  @Column()
-  details: string;
+  description: string;
 
   @ApiProperty()
   @Column()
@@ -25,5 +21,5 @@ export class Calendrier {
 
   @ApiProperty()
   @Column()
-  pdfUrl: string;
+  photo_url: string;
 }

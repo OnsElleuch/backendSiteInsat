@@ -1,29 +1,25 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
-@Entity('Calendrier')
-export class Calendrier {
+@Entity('club')
+export class ClubEntity {
   @ApiProperty()
   @PrimaryGeneratedColumn()
   id: number;
 
   @ApiProperty()
   @Column()
-  name: string;
+  clubName: string;
 
   @ApiProperty()
   @Column()
-  type: string;
+  clubDescription: string;
 
   @ApiProperty()
   @Column()
-  details: string;
+  president: string;
 
   @ApiProperty()
   @Column()
-  date: string;
-
-  @ApiProperty()
-  @Column()
-  pdfUrl: string;
+  photo_url: string;
 }
