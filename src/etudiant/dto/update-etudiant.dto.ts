@@ -5,6 +5,8 @@ export class UpdateEtudiantDto extends PartialType(CreateEtudiantDto) {
   @ApiProperty()
   name: string;
   @ApiProperty()
+  class: string;
+  @ApiProperty()
   password: string;
   @ApiProperty()
   CIN: string;
