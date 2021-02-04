@@ -24,6 +24,10 @@ import { ConventionModule } from './convention/convention.module';
 import { ContactAdminModule } from './contact-admin/contact-admin.module';
 import { EtudiantModule } from './etudiant/etudiant.module';
 import { AuthModule } from './auth/auth.module';
+import { AdminModule } from './admin/admin.module';
+import { AdminEntity } from './admin/entities/admin.entity';
+import { AdminService } from './admin/admin.service';
+import { AdminController } from './admin/admin.controller';
 
 dotenv.config();
 @Module({
@@ -48,6 +52,7 @@ dotenv.config();
     ConventionModule,
     ContactAdminModule,
     EtudiantModule,
+    AdminModule,
     AuthModule,
   ],
   controllers: [
@@ -55,7 +60,14 @@ dotenv.config();
     EvenmentsController,
     NouveautesController,
     ClubsController,
+    AdminController,
   ],
-  providers: [AppService, EvenmentsService, NouveautesService, ClubsService],
+  providers: [
+    AppService,
+    EvenmentsService,
+    NouveautesService,
+    ClubsService,
+    AdminService,
+  ],
 })
 export class AppModule {}
