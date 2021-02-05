@@ -1,5 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import {
+  IPaginationOptions,
+  Pagination,
+  paginate,
+} from 'nestjs-typeorm-paginate';
 import { Repository } from 'typeorm';
 import { DepartmentEnumEnum } from './deprtment-enum.enum';
 import { EnseignantEntity } from './entities/enseignant.entity';
@@ -33,5 +38,17 @@ export class DepartmentService {
   }
   async addEnseignant(enseignant: Enseignant) {
     return await this.EnseignantRepository.save(enseignant);
+  }
+  async getAllEnseignants(
+    options: IPaginationOptions,
+  ): Promise<Pagination<EnseignantEntity>> {
+    return paginate<EnseignantEntity>(this.EnseignantRepository, options);
+  }
+  async getEnseignantById(email: string) {
+    return await this.EnseignantRepository.findOne({ email: email });
+  }
+
+  async deleteEnseignantById(email: string) {
+    return await this.EnseignantRepository.delete(email);
   }
 }
