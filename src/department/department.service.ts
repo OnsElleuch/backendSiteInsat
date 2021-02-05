@@ -16,11 +16,13 @@ export class DepartmentService {
     @InjectRepository(EnseignantEntity)
     private readonly EnseignantRepository: Repository<EnseignantEntity>,
   ) {}
+
   async getLabsByDepartment(departmentName: string): Promise<LabEntity[]> {
     return await this.LabRepository.find({
       department: DepartmentEnumEnum[departmentName],
     });
   }
+
   async getEnseignantByDepartment(departmentName: string, gradeName: string) {
     return await this.EnseignantRepository.find({
       department: DepartmentEnumEnum[departmentName],
