@@ -6,11 +6,14 @@ import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
 import { AuthController } from './auth.controller';
 import * as dotenv from 'dotenv';
+import { AdminModule } from 'src/admin/admin.module';
+import { AdminService } from 'src/admin/admin.service';
 dotenv.config();
 
 @Module({
   imports: [
     EtudiantModule,
+    AdminModule,
     PassportModule.register({
       defaultStrategy: 'jwt',
       property: 'user',
@@ -25,7 +28,7 @@ dotenv.config();
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy],
+  providers: [AuthService, JwtStrategy, AdminService],
   exports: [PassportModule, JwtModule],
 })
 export class AuthModule {}
