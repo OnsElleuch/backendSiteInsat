@@ -26,6 +26,7 @@ import { ContactAdminModule } from './contact-admin/contact-admin.module';
 import { BrevetModule } from './brevet/brevet.module';
 import { EtudiantModule } from './etudiant/etudiant.module';
 import { AuthModule } from './auth/auth.module';
+import { ProjetRechercheModule } from './projet-recherche/projet-recherche.module';
 import { LaboratoireRechercheModule } from './laboratoire-recherche/laboratoire-recherche.module';
 import { CommissionTheseModule } from './commission-these/commission-these.module';
 import { DoctorantModule } from './doctorant/doctorant.module';
@@ -61,6 +62,7 @@ dotenv.config();
     EtudiantModule,
     AdminModule,
     AuthModule,
+    ProjetRechercheModule,
     LaboratoireRechercheModule,
     CommissionTheseModule,
     DoctorantModule,
