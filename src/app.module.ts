@@ -26,6 +26,7 @@ import { ContactAdminModule } from './contact-admin/contact-admin.module';
 import { BrevetModule } from './brevet/brevet.module';
 import { EtudiantModule } from './etudiant/etudiant.module';
 import { AuthModule } from './auth/auth.module';
+import { ArticleScientifiqueModule } from './article-scientifique/article-scientifique.module';
 import { AdminModule } from './admin/admin.module';
 import { AdminEntity } from './admin/entities/admin.entity';
 import { AdminService } from './admin/admin.service';
@@ -57,6 +58,7 @@ dotenv.config();
     EtudiantModule,
     AdminModule,
     AuthModule,
+    ArticleScientifiqueModule,
   ],
   controllers: [
     AppController,
