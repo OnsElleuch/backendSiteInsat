@@ -17,6 +17,10 @@ export class Calendrier {
 
   @ApiProperty()
   @Column()
+  details: string;
+
+  @ApiProperty()
+  @Column()
   date: string;
 
   @ApiProperty()
