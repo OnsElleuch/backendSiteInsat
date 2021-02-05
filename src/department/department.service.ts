@@ -51,4 +51,17 @@ export class DepartmentService {
   async deleteEnseignantById(email: string) {
     return await this.EnseignantRepository.delete(email);
   }
+
+  async getAllLabs(
+    options: IPaginationOptions,
+  ): Promise<Pagination<LabEntity>> {
+    return paginate<LabEntity>(this.LabRepository, options);
+  }
+  async getLabById(number: string) {
+    return await this.LabRepository.findOne({ num: number });
+  }
+
+  async deleteLabById(number: string) {
+    return await this.LabRepository.delete(number);
+  }
 }
