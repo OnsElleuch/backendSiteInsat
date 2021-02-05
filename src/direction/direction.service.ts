@@ -35,4 +35,7 @@ export class DirectionService {
   async deleteMemberById(code: number) {
     return await this.DirectionRepository.delete(code);
   }
+  async getMemberById(code) {
+    return await this.DirectionRepository.findOne({ poste_code: code });
+  }
 }

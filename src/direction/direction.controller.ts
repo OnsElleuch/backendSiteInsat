@@ -45,6 +45,11 @@ export class DirectionController {
     });
   }
 
+  @Get('getMemberById/:poste_code')
+  getMemberById(@Param('poste_code') poste_code) {
+    return this.directionService.getMemberById(poste_code);
+  }
+
   @Post('addMember')
   addMember(@Body() member: Direction) {
     return this.directionService.addMember(member);
