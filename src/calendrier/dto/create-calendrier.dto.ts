@@ -5,6 +5,8 @@ export class CreateCalendrierDto {
   @ApiProperty()
   type: string;
   @ApiProperty()
+  details: string;
+  @ApiProperty()
   date: string;
   @ApiProperty()
   pdfUrl: string;
