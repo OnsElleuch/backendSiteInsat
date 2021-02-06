@@ -16,7 +16,12 @@ export class NouveautesService {
     @InjectRepository(NewsEntity)
     private readonly NewsRepository: Repository<NewsEntity>,
   ) {}
-  async getNews(options: IPaginationOptions): Promise<Pagination<NewsEntity>> {
+  async getNews(): Promise<NewsEntity[]> {
+    return await this.NewsRepository.find();
+  }
+  async getNewsPaginate(
+    options: IPaginationOptions,
+  ): Promise<Pagination<NewsEntity>> {
     return paginate<NewsEntity>(this.NewsRepository, options);
   }
   async getNewsById(id: number) {

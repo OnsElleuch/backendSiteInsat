@@ -24,11 +24,16 @@ import { NewsEntity } from './entities/news.entity';
 export class NouveautesController {
   constructor(private nouveautesService: NouveautesService) {}
   @Get('getNews')
-  getNews(
+  getNews() {
+    return this.nouveautesService.getNews();
+  }
+
+  @Get('getNewsPaginate')
+  getNewsPaginate(
     @Query('page', ParseIntPipe) page: number = 1,
     @Query('limit', ParseIntPipe) limit: number = 10,
   ): Promise<Pagination<NewsEntity>> {
-    return this.nouveautesService.getNews({
+    return this.nouveautesService.getNewsPaginate({
       page,
       limit,
       route: 'http://localhost:3000/news/getNews',
