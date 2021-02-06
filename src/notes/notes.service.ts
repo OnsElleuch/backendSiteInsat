@@ -4,6 +4,11 @@ import { UpdateNoteDto } from './dto/update-note.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Note } from './entities/note.entity';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class NotesService {
@@ -16,6 +21,12 @@ export class NotesService {
   }
   async findAll() {
     return await this.NoteRepository.find();
+  }
+
+  async getNotesPaginate(
+    options: IPaginationOptions,
+  ): Promise<Pagination<Note>> {
+    return paginate<Note>(this.NoteRepository, options);
   }
 
   async findOne(id: number) {
