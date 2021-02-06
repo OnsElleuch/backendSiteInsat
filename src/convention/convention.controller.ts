@@ -6,11 +6,20 @@ import {
   Put,
   Param,
   Delete,
+  ParseIntPipe,
+  Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ConventionService } from './convention.service';
 import { CreateConventionDto } from './dto/create-convention.dto';
 import { UpdateConventionDto } from './dto/update-convention.dto';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
+import { Convention } from './entities/convention.entity';
+
 @ApiTags('convention')
 @Controller('convention')
 export class ConventionController {
@@ -24,6 +33,18 @@ export class ConventionController {
   @Get()
   findAll() {
     return this.conventionService.findAll();
+  }
+
+  @Get('paginate')
+  getConventionPaginate(
+    @Query('page', ParseIntPipe) page: number = 1,
+    @Query('limit', ParseIntPipe) limit: number = 10,
+  ): Promise<Pagination<Convention>> {
+    return this.conventionService.getConventionsPaginate({
+      page,
+      limit,
+      route: 'http://localhost:3000/convention/paginate',
+    });
   }
 
   @Get(':id')
