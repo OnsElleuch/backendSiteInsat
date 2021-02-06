@@ -6,11 +6,19 @@ import {
   Param,
   Post,
   Put,
+  ParseIntPipe,
+  Query,
 } from '@nestjs/common';
 import { EvenmentsService } from './evenments.service';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
+import { EventEntity } from './entities/event.entity';
 
 @ApiTags('evenments')
 @Controller('evenments')
@@ -20,6 +28,18 @@ export class EvenmentsController {
   @Get('getEvents')
   getEvents() {
     return this.evenmentsService.getEvents();
+  }
+
+  @Get('getEventsPaginate')
+  getEventsPaginate(
+    @Query('page', ParseIntPipe) page: number = 1,
+    @Query('limit', ParseIntPipe) limit: number = 10,
+  ): Promise<Pagination<EventEntity>> {
+    return this.evenmentsService.getEventsPaginate({
+      page,
+      limit,
+      route: 'http://localhost:3000/evenments/getEventsPaginate',
+    });
   }
 
   @Get('getEventsById/:id')
