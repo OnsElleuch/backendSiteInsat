@@ -36,7 +36,7 @@ export class NouveautesController {
     return this.nouveautesService.getNewsPaginate({
       page,
       limit,
-      route: 'http://localhost:3000/news/getNews',
+      route: 'http://localhost:3000/news/getNewsPaginate',
     });
   }
 
