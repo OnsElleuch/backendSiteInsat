@@ -6,11 +6,19 @@ import {
   Put,
   Param,
   Delete,
+  ParseIntPipe,
+  Query,
 } from '@nestjs/common';
 import { PartenariatService } from './partenariat.service';
 import { CreatePartenariatDto } from './dto/create-partenariat.dto';
 import { UpdatePartenariatDto } from './dto/update-partenariat.dto';
 import { ApiTags } from '@nestjs/swagger';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
+import { Partenariat } from './entities/partenariat.entity';
 
 @ApiTags('partenariat')
 @Controller('partenariat')
@@ -25,6 +33,18 @@ export class PartenariatController {
   @Get()
   findAll() {
     return this.partenariatService.findAll();
+  }
+
+  @Get('paginate')
+  getPartenariatsPaginate(
+    @Query('page', ParseIntPipe) page: number = 1,
+    @Query('limit', ParseIntPipe) limit: number = 10,
+  ): Promise<Pagination<Partenariat>> {
+    return this.partenariatService.getPartenariatPaginate({
+      page,
+      limit,
+      route: 'http://localhost:3000/partenariat/paginate',
+    });
   }
 
   @Get(':id')
