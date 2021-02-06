@@ -1,5 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import {
+  IPaginationOptions,
+  Pagination,
+  paginate,
+} from 'nestjs-typeorm-paginate';
 import { Repository } from 'typeorm';
 import { CreateRendezVousDto } from './dto/create-rendez-vous.dto';
 import { RendezVousEntity } from './entities/rendez-vous.entity';
@@ -23,5 +28,18 @@ export class RendezVousService {
 
   async createRendezVous(createRendezVousDto: CreateRendezVousDto) {
     return await this.RendezVousRepository.save(createRendezVousDto);
+  }
+
+  async getAllRendezVous(
+    options: IPaginationOptions,
+  ): Promise<Pagination<RendezVousEntity>> {
+    return paginate<RendezVousEntity>(this.RendezVousRepository, options);
+  }
+  async getRendezVousById(id: number) {
+    return await this.RendezVousRepository.findOne({ id: id });
+  }
+
+  async deleteRendezVousById(id: number) {
+    return await this.RendezVousRepository.delete(id);
   }
 }
