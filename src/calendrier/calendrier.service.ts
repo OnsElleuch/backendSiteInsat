@@ -4,6 +4,11 @@ import { Repository } from 'typeorm';
 import { Calendrier } from './entities/calendrier.entity';
 import { CreateCalendrierDto } from './dto/create-calendrier.dto';
 import { UpdateCalendrierDto } from './dto/update-calendrier.dto';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class CalendrierService {
@@ -17,6 +22,12 @@ export class CalendrierService {
 
   async findAll() {
     return await this.CalendrierRepository.find();
+  }
+
+  async getCalendrierPaginate(
+    options: IPaginationOptions,
+  ): Promise<Pagination<Calendrier>> {
+    return paginate<Calendrier>(this.CalendrierRepository, options);
   }
 
   async findOne(id: number) {
