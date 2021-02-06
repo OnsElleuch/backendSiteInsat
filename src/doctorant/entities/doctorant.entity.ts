@@ -1,5 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { EtudiantEntity } from '../../etudiant/entities/etudiant.entity';
 
 @Entity('Doctorant')
 export class DoctorantEntity {
@@ -22,4 +30,12 @@ export class DoctorantEntity {
   @ApiProperty()
   @Column()
   cotutelle: boolean;
+
+  @ApiProperty()
+  @OneToOne(() => EtudiantEntity, {
+    nullable: true,
+    eager: true,
+  })
+  @JoinColumn()
+  etudiant: EtudiantEntity;
 }

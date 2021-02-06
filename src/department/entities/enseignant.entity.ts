@@ -1,6 +1,15 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  PrimaryColumn,
+} from 'typeorm';
 import { DepartmentEnumEnum } from '../deprtment-enum.enum';
 import { GradeEnum } from '../grade.enum';
+import { ApiProperty } from '@nestjs/swagger';
+import { BrevetEntity } from '../../brevet/entities/brevet.entity';
 
 @Entity('enseignant')
 export class EnseignantEntity {
@@ -27,4 +36,10 @@ export class EnseignantEntity {
     enum: GradeEnum,
   })
   grade: GradeEnum;
+
+  @ApiProperty()
+  @ManyToMany(() => BrevetEntity, (brevet) => brevet.inventeurs, {
+    nullable: true,
+  })
+  brevetsInvention: BrevetEntity[];
 }

@@ -22,9 +22,8 @@ export class EnseignantCommissionTheseEntity extends EnseignantEntity {
 
   @ApiProperty()
   @Column()
-  président: boolean;
+  president: boolean;
 
-  // doit changer en relation
   @ApiProperty()
   @Column()
   laboratiore: string;
