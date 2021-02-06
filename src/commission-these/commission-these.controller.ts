@@ -7,9 +7,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { CommissionTheseService } from './commission-these.service';
 import { EnseignantCommissionTheseEntity } from './entities/enseignant-commission-these.entity';
-
+@ApiTags('commission-these')
 @Controller('enseignant-commission-these')
 export class CommissionTheseController {
   constructor(

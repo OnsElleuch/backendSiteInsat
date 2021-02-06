@@ -9,7 +9,8 @@ import {
 } from '@nestjs/common';
 import { LaboratoireRechercheService } from './laboratoire-recherche.service';
 import { LaboratoireRechercheDto } from './dto/Laboratoire-recherche';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('laboratoire-recherche')
 @Controller('laboratoire-recherche')
 export class LaboratoireRechercheController {
   constructor(

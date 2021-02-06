@@ -7,10 +7,11 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
 import { DoctorantService } from './doctorant.service';
 import { DoctorantEntity } from './entities/doctorant.entity';
-
+@ApiTags('doctorant')
 @Controller('doctorant')
 export class DoctorantController {
   constructor(private readonly doctorantService: DoctorantService) {}

@@ -7,10 +7,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-
 import { ProjetRechercheService } from './projet-recherche.service';
 import { ProjetRechercheDto } from './dto/projet-recherche.dto';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('projet-recherche')
 @Controller('projet-recherche')
 export class ProjetRechercheController {
   constructor(

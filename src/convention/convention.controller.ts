@@ -7,10 +7,11 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ConventionService } from './convention.service';
 import { CreateConventionDto } from './dto/create-convention.dto';
 import { UpdateConventionDto } from './dto/update-convention.dto';
-
+@ApiTags('convention')
 @Controller('convention')
 export class ConventionController {
   constructor(private readonly conventionService: ConventionService) {}

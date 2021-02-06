@@ -17,8 +17,6 @@ export class AdminEntity {
   @Column()
   profile_picture: string;
   @Column()
-  mail: string;
-  @Column()
   description?: string;
   @Column()
   president?: string;
