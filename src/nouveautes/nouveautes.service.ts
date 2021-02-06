@@ -4,6 +4,11 @@ import { Repository } from 'typeorm';
 import { CreateNewsDto } from './dto/create-news.dto';
 import { UpdateNewsDto } from './dto/update-news.dto';
 import { NewsEntity } from './entities/news.entity';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class NouveautesService {
@@ -11,11 +16,11 @@ export class NouveautesService {
     @InjectRepository(NewsEntity)
     private readonly NewsRepository: Repository<NewsEntity>,
   ) {}
-  async getNews(): Promise<NewsEntity[]> {
-    return await this.NewsRepository.find();
+  async getNews(options: IPaginationOptions): Promise<Pagination<NewsEntity>> {
+    return paginate<NewsEntity>(this.NewsRepository, options);
   }
   async getNewsById(id: number) {
-    return await this.NewsRepository.find({ id: id });
+    return await this.NewsRepository.findOne({ id: id });
   }
   async updateNews(id: number, updateNewsDto: UpdateNewsDto) {
     return await this.NewsRepository.update({ id: id }, updateNewsDto);
