@@ -24,9 +24,9 @@ export class CommissionTheseController {
     return this.commissionTheseService.create(enseignantCommissionTheseEntity);
   }
 
-  @Get()
-  findAll() {
-    return this.commissionTheseService.findAll();
+  @Get('getMembresDeCommites/:domaine')
+  findByDomaine(@Param('domaine') domaine: string) {
+    return this.commissionTheseService.findByDomaine(domaine);
   }
 
   @Get(':email')

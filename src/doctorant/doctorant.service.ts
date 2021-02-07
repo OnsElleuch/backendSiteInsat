@@ -17,11 +17,11 @@ export class DoctorantService {
     return await this.doctorantRepository.find();
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     return await this.doctorantRepository.findOne(id);
   }
 
-  async update(id: number, doctorant: DoctorantEntity) {
+  async update(id: string, doctorant: DoctorantEntity) {
     return await this.doctorantRepository.update({ id: id }, doctorant);
   }
 

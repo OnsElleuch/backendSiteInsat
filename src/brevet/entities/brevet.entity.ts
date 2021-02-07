@@ -1,5 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { EnseignantEntity } from '../../department/entities/enseignant.entity';
 
 @Entity('Brevet')
 export class BrevetEntity {
@@ -23,7 +30,12 @@ export class BrevetEntity {
   @Column()
   dateEnregistrement: Date;
 
-  /*@ApiProperty()
-  @Column()
-  Inventeurs: string;*/
+  @ApiProperty()
+  @ManyToMany(
+    () => EnseignantEntity,
+    (enseignant) => enseignant.brevetsInvention,
+    { eager: true },
+  )
+  @JoinTable()
+  inventeurs: EnseignantEntity[];
 }

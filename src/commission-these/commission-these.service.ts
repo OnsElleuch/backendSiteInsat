@@ -20,7 +20,11 @@ export class CommissionTheseService {
   async findAll() {
     return await this.EnseignantCommissionTheseRepository.find();
   }
-
+  async findByDomaine(domaine: string) {
+    return await this.EnseignantCommissionTheseRepository.find({
+      domaine: domaine,
+    });
+  }
   async findOne(email: string) {
     return await this.EnseignantCommissionTheseRepository.findOne(email);
   }

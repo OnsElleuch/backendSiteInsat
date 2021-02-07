@@ -21,19 +21,19 @@ export class DoctorantController {
     return this.doctorantService.create(doctorant);
   }
 
-  @Get()
+  @Get('getDoctorants')
   findAll() {
     return this.doctorantService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.doctorantService.findOne(+id);
+    return this.doctorantService.findOne(id);
   }
 
   @Put(':id')
   update(@Param('id') id: string, @Body() doctorant: DoctorantEntity) {
-    return this.doctorantService.update(+id, doctorant);
+    return this.doctorantService.update(id, doctorant);
   }
 
   @Delete(':id')

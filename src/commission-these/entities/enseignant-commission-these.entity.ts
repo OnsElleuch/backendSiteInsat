@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { EnseignantEntity } from '../../department/entities/enseignant.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -22,12 +29,11 @@ export class EnseignantCommissionTheseEntity extends EnseignantEntity {
 
   @ApiProperty()
   @Column()
-  président: boolean;
+  laboratoire: string;
 
-  // doit changer en relation
   @ApiProperty()
   @Column()
-  laboratiore: string;
+  president: boolean;
 
   @ApiProperty()
   @Column()

@@ -11,8 +11,10 @@ import { ApiTags } from '@nestjs/swagger';
 
 import { ArticleScientifiqueService } from './article-scientifique.service';
 import { ArticleScientifiqueEntity } from './entities/article-scientifique.entity';
-@ApiTags('article-scientifique')
-@Controller('article-scientifique')
+
+@ApiTags('article')
+@Controller('article')
+
 export class ArticleScientifiqueController {
   constructor(
     private readonly articleScientifiqueService: ArticleScientifiqueService,
@@ -23,7 +25,7 @@ export class ArticleScientifiqueController {
     return this.articleScientifiqueService.create(article);
   }
 
-  @Get()
+  @Get('getArticles')
   findAll() {
     return this.articleScientifiqueService.findAll();
   }
