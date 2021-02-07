@@ -4,7 +4,6 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as express from 'express';
 import { join } from 'path';
 const fs = require('fs');
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
