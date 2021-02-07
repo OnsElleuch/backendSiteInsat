@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import { LaboratoireRechercheEntity } from './entities/laboratoire-recherche.entity';
 import { LaboratoireRechercheDto } from './dto/Laboratoire-recherche';
 
@@ -17,8 +17,16 @@ export class LaboratoireRechercheService {
     );
   }
 
-  async findAll() {
-    return await this.laboratoireRechercheRepository.find();
+  async findLabos() {
+    return await this.laboratoireRechercheRepository.find({
+      type: 'laboratoire',
+    });
+  }
+
+  async findUnites() {
+    return await this.laboratoireRechercheRepository.find({
+      type: Like('%unité%'),
+    });
   }
 
   async findOne(id: number) {

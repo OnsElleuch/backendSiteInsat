@@ -10,7 +10,6 @@ export class LaboratoireRechercheDto {
   @ApiProperty()
   etablissement: string;
 
-  // lezem twalli relation
   @ApiProperty()
   responsable: string;
 

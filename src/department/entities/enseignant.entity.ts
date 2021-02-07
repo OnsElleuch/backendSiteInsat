@@ -1,11 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  JoinTable,
-  ManyToMany,
-  PrimaryColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToMany, PrimaryColumn } from 'typeorm';
 import { DepartmentEnumEnum } from '../deprtment-enum.enum';
 import { GradeEnum } from '../grade.enum';
 import { ApiProperty } from '@nestjs/swagger';

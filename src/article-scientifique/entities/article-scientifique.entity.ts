@@ -8,6 +8,6 @@ export class ArticleScientifiqueEntity {
   id: number;
 
   @ApiProperty()
-  @Column()
+  @Column({ type: 'text' })
   content: string;
 }

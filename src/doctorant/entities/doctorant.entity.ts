@@ -1,20 +1,10 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { BeforeInsert, Column, Entity } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { EtudiantEntity } from '../../etudiant/entities/etudiant.entity';
+const bcrypt = require('bcrypt');
 
 @Entity('Doctorant')
-export class DoctorantEntity {
-  @ApiProperty()
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class DoctorantEntity extends EtudiantEntity {
   @ApiProperty()
   @Column()
   etablissement: string;
@@ -31,11 +21,7 @@ export class DoctorantEntity {
   @Column()
   cotutelle: boolean;
 
-  @ApiProperty()
-  @OneToOne(() => EtudiantEntity, {
-    nullable: true,
-    eager: true,
-  })
-  @JoinColumn()
-  etudiant: EtudiantEntity;
+  @BeforeInsert() async hashPassword() {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
 }

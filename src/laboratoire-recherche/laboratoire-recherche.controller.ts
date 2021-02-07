@@ -21,9 +21,13 @@ export class LaboratoireRechercheController {
     return this.laboratoireRechercheService.create(laboratoireRechercheDto);
   }
 
-  @Get()
-  findAll() {
-    return this.laboratoireRechercheService.findAll();
+  @Get('getLaboratoiresRecherche')
+  findLabos() {
+    return this.laboratoireRechercheService.findLabos();
+  }
+  @Get('getUnitesDeRecherche')
+  findUnites() {
+    return this.laboratoireRechercheService.findUnites();
   }
 
   @Get(':id')
