@@ -6,11 +6,20 @@ import {
   Put,
   Param,
   Delete,
+  ParseIntPipe,
+  Query,
 } from '@nestjs/common';
 import { NotesService } from './notes.service';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
 import { ApiTags } from '@nestjs/swagger';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
+import { Note } from './entities/note.entity';
+
 @ApiTags('notes')
 @Controller('notes')
 export class NotesController {
@@ -24,6 +33,18 @@ export class NotesController {
   @Get()
   findAll() {
     return this.notesService.findAll();
+  }
+
+  @Get('paginate')
+  getEventsPaginate(
+    @Query('page', ParseIntPipe) page: number = 1,
+    @Query('limit', ParseIntPipe) limit: number = 10,
+  ): Promise<Pagination<Note>> {
+    return this.notesService.getNotesPaginate({
+      page,
+      limit,
+      route: 'http://localhost:3000/notes/paginate',
+    });
   }
 
   @Get(':id')

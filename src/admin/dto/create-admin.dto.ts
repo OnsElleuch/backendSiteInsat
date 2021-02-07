@@ -11,8 +11,6 @@ export class CreateAdminDto {
   @ApiProperty()
   profile_picture: string;
   @ApiProperty()
-  mail: string;
-  @ApiProperty()
   description?: string;
   @ApiProperty()
   president?: string;

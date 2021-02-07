@@ -4,6 +4,11 @@ import { CreateConventionDto } from './dto/create-convention.dto';
 import { UpdateConventionDto } from './dto/update-convention.dto';
 import { Repository } from 'typeorm';
 import { Convention } from './entities/convention.entity';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class ConventionService {
@@ -14,6 +19,12 @@ export class ConventionService {
 
   async create(createConventionDto: CreateConventionDto) {
     return await this.ConventionRepository.save(createConventionDto);
+  }
+
+  async getConventionsPaginate(
+    options: IPaginationOptions,
+  ): Promise<Pagination<Convention>> {
+    return paginate<Convention>(this.ConventionRepository, options);
   }
 
   async findAll() {

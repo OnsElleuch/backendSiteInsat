@@ -4,6 +4,11 @@ import { CreatePartenariatDto } from './dto/create-partenariat.dto';
 import { UpdatePartenariatDto } from './dto/update-partenariat.dto';
 import { Repository } from 'typeorm';
 import { Partenariat } from './entities/partenariat.entity';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions,
+} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class PartenariatService {
@@ -14,6 +19,12 @@ export class PartenariatService {
 
   async create(createPartenariatDto: CreatePartenariatDto) {
     return await this.PartenariatRepository.save(createPartenariatDto);
+  }
+
+  async getPartenariatPaginate(
+    options: IPaginationOptions,
+  ): Promise<Pagination<Partenariat>> {
+    return paginate<Partenariat>(this.PartenariatRepository, options);
   }
 
   async findAll() {

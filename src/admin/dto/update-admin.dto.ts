@@ -7,7 +7,6 @@ export class UpdateAdminDto extends PartialType(CreateAdminDto) {
   privilege: number;
   email: string;
   profile_picture: string;
-  mail: string;
   description?: string;
   president?: string;
 }
