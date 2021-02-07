@@ -14,7 +14,6 @@ import { ArticleScientifiqueEntity } from './entities/article-scientifique.entit
 
 @ApiTags('article')
 @Controller('article')
-
 export class ArticleScientifiqueController {
   constructor(
     private readonly articleScientifiqueService: ArticleScientifiqueService,

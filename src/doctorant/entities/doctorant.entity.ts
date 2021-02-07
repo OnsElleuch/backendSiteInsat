@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { EtudiantEntity } from '../../etudiant/entities/etudiant.entity';
 const bcrypt = require('bcrypt');
 
-@Entity('Doctorant')
+@Entity('doctorant')
 export class DoctorantEntity extends EtudiantEntity {
   @ApiProperty()
   @Column()
