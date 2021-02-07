@@ -22,8 +22,19 @@ import { NotesModule } from './notes/notes.module';
 import { PartenariatModule } from './partenariat/partenariat.module';
 import { ConventionModule } from './convention/convention.module';
 import { ContactAdminModule } from './contact-admin/contact-admin.module';
+
+import { BrevetModule } from './brevet/brevet.module';
 import { EtudiantModule } from './etudiant/etudiant.module';
 import { AuthModule } from './auth/auth.module';
+import { ProjetRechercheModule } from './projet-recherche/projet-recherche.module';
+import { LaboratoireRechercheModule } from './laboratoire-recherche/laboratoire-recherche.module';
+import { CommissionTheseModule } from './commission-these/commission-these.module';
+import { DoctorantModule } from './doctorant/doctorant.module';
+import { ArticleScientifiqueModule } from './article-scientifique/article-scientifique.module';
+import { AdminModule } from './admin/admin.module';
+import { AdminEntity } from './admin/entities/admin.entity';
+import { AdminService } from './admin/admin.service';
+import { AdminController } from './admin/admin.controller';
 
 dotenv.config();
 @Module({
@@ -47,15 +58,29 @@ dotenv.config();
     PartenariatModule,
     ConventionModule,
     ContactAdminModule,
+    BrevetModule,
     EtudiantModule,
+    AdminModule,
     AuthModule,
+    ProjetRechercheModule,
+    LaboratoireRechercheModule,
+    CommissionTheseModule,
+    DoctorantModule,
+    ArticleScientifiqueModule,
   ],
   controllers: [
     AppController,
     EvenmentsController,
     NouveautesController,
     ClubsController,
+    AdminController,
   ],
-  providers: [AppService, EvenmentsService, NouveautesService, ClubsService],
+  providers: [
+    AppService,
+    EvenmentsService,
+    NouveautesService,
+    ClubsService,
+    AdminService,
+  ],
 })
 export class AppModule {}
